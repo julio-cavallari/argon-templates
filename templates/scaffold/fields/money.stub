@@ -1,0 +1,11 @@
+<!-- $FIELD_NAME_TITLE$ Field -->
+<div class="col-sm-6">
+    <form-money
+        title="$FIELD_NAME_TITLE$"
+        name="$FIELD_NAME$"
+        value=""
+        error="@error('$FIELD_NAME$'){{ $message }}@enderror"
+        :required="$FIELD_REQUIRED$"
+    >
+    </form-money>
+</div>

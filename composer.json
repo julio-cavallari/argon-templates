@@ -1,28 +1,36 @@
 {
-    "name": "infyomlabs/adminlte-templates",
-    "description": "AdminLTE templates for InfyOm Laravel Generator",
+    "name": "gpedon/argon-templates",
+    "type": "library",
+    "description": "Argon templates for InfyOm Laravel Generator",
     "keywords": [
         "infyom",
         "laravel",
         "generator",
-        "adminlte",
+        "argon",
         "templates",
         "bootstrap"
     ],
     "license": "MIT",
     "authors": [
         {
-            "name": "Mitul Golakiya",
-            "email": "me@mitul.me"
+            "name": "Guilherme Makauskas",
+            "email": "contato@guilhermepedon.com.br"
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "illuminate/support": "~5.0"
+        "php": "^7.2.5",
+        "illuminate/support": "^7.0"
     },
     "autoload": {
         "psr-4": {
-            "InfyOm\\AdminLTETemplates\\": "src/"
+            "InfyOm\\ArgonTemplates\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "\\InfyOm\\ArgonTemplates\\ArgonTemplatesServiceProvider"
+            ]
         }
     }
 }

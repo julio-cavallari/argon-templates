@@ -1,0 +1,55 @@
+<!-- Name Field -->
+<div class="col-sm-6">
+    <form-input
+        name="name"
+        input-type="text"
+        title="Name"
+        value=""
+        error="@error('name'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
+</div>
+
+<!-- Email Field -->
+<div class="col-sm-6">
+    <form-input
+        name="email"
+        input-type="email"
+        title="E-mail"
+        value=""
+        error="@error('email'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
+</div>
+
+<!-- Password Field -->
+<div class="col-sm-6">
+    <form-input
+        name="password"
+        input-type="password"
+        title="Password"
+        value=""
+        error="@error('password'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
+</div>
+
+<!-- Confirmation Password Field -->
+<div class="col-sm-6">
+    <form-input
+        name="password_confirmation"
+        input-type="password"
+        title="Password Confirmation"
+        value=""
+        error="@error('password_confirmation'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
+</div>
+
+<div class="text-center">
+    <button type="submit" class="btn btn-success mt-4">Save</button>
+</div>
