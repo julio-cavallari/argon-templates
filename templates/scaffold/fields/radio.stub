@@ -1,3 +1,10 @@
-    <label class="radio-inline">
-        {!! Form::radio('$FIELD_NAME$', "$VALUE$", null) !!} $LABEL$
-    </label>
+    <!-- $FIELD_NAME_TITLE$ Field -->
+    <div class="col-sm-6">
+        <form-radio
+            label="$FIELD_NAME_TITLE$"
+            name="$FIELD_NAME$"
+            value="$CHECKBOX_VALUE$"
+            :model-value="false"
+        >
+        </form-radio>
+    </div>

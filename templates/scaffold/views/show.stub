@@ -1,19 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            $MODEL_NAME_HUMAN$
-        </h1>
-    </section>
-    <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row" style="padding-left: 20px">
-                    @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.show_fields')
-                    <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index') }}" class="btn btn-default">Back</a>
+@include('layouts.headers.title')
+
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Visualizar $MODEL_NAME_HUMAN$</h3>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index') }}" class="btn btn-sm btn-light">Voltar</a>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="card-body">
+                    @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.show_fields')
+                </div>
+
             </div>
         </div>
     </div>
+</div>
+
 @endsection
+

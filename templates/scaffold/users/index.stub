@@ -1,26 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="content-header">
-        <h1 class="pull-left">Users</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('users.create') !!}">Add New</a>
-        </h1>
-    </section>
-    <div class="content">
-        <div class="clearfix"></div>
+@include('layouts.headers.title')
 
-        @include('flash::message')
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Clientes</h3>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a href="{{ route('clientes.create') }}" class="btn btn-sm btn-primary">Adicionar</a>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="clearfix"></div>
-        <div class="box box-primary">
-            <div class="box-body">
-                    @include('users.table')
+                @include('layouts.partials.messages')
+                @include('users.table')
+                @include('layouts.partials.pagination', ['records' => $users]);
             </div>
         </div>
-        <div class="text-center">
-        
-        </div>
     </div>
+</div>
+
 @endsection
 

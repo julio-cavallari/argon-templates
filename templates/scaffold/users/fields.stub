@@ -1,29 +1,55 @@
 <!-- Name Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('name', 'Name') !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+<div class="col-sm-6">
+    <form-input
+        name="name"
+        input-type="text"
+        title="Name"
+        value=""
+        error="@error('name'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
 </div>
 
 <!-- Email Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('email', 'Email') !!}
-    {!! Form::email('email', null, ['class' => 'form-control']) !!}
+<div class="col-sm-6">
+    <form-input
+        name="email"
+        input-type="email"
+        title="E-mail"
+        value=""
+        error="@error('email'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
 </div>
 
 <!-- Password Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('password', 'Password') !!}
-    {!! Form::password('password', ['class' => 'form-control']) !!}
+<div class="col-sm-6">
+    <form-input
+        name="password"
+        input-type="password"
+        title="Password"
+        value=""
+        error="@error('password'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
 </div>
 
 <!-- Confirmation Password Field -->
-<div class="form-group col-sm-6">
-      {!! Form::label('password', 'Password Confirmation') !!}
-    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+<div class="col-sm-6">
+    <form-input
+        name="password_confirmation"
+        input-type="password"
+        title="Password Confirmation"
+        value=""
+        error="@error('password_confirmation'){{ $message }}@enderror"
+        :required="true"
+    >
+    </form-input>
 </div>
 
-<!-- Submit Field -->
-<div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('users.index') !!}" class="btn btn-default">Cancel</a>
+<div class="text-center">
+    <button type="submit" class="btn btn-success mt-4">Save</button>
 </div>

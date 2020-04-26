@@ -24,3 +24,34 @@
     </div>
 @endsection
 
+
+@extends('layouts.app')
+
+@section('content')
+@include('layouts.headers.title')
+
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">$MODEL_NAME_PLURAL_HUMAN$</h3>
+                        </div>
+                        <div class="col-4 text-right">
+                            <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.create') }}" class="btn btn-sm btn-primary">Adicionar</a>
+                        </div>
+                    </div>
+                </div>
+
+                @include('layouts.partials.messages')
+                @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.table')
+                $PAGINATE$
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+

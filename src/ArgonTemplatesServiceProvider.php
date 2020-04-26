@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\AdminLTETemplates;
+namespace InfyOm\ArgonTemplates;
 
 use Illuminate\Support\ServiceProvider;
 
-class AdminLTETemplatesServiceProvider extends ServiceProvider
+class ArgonTemplatesServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -13,7 +13,7 @@ class AdminLTETemplatesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../views', 'adminlte-templates');
+        $this->loadViewsFrom(__DIR__.'/../views', 'argon-templates');
     }
 
     /**
