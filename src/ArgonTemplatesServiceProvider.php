@@ -13,7 +13,13 @@ class ArgonTemplatesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../views', 'argon-templates');
+        $this->publishes([
+            __DIR__.'/../install/theme/' => public_path('theme'),
+        ], 'public');
+
+        $this->publishes([
+            __DIR__.'/../install/resources/' => resource_path('resources'),
+        ], 'resources');
     }
 
     /**
