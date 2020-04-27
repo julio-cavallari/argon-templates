@@ -4,7 +4,7 @@
         name="name"
         input-type="text"
         title="Name"
-        value=""
+        value="{{ Form::getValueAttribute('name') }}"
         error="@error('name'){{ $message }}@enderror"
         :required="true"
     >
@@ -17,7 +17,7 @@
         name="email"
         input-type="email"
         title="E-mail"
-        value=""
+        value="{{ Form::getValueAttribute('email') }}"
         error="@error('email'){{ $message }}@enderror"
         :required="true"
     >
