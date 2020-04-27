@@ -16,7 +16,7 @@
   <!-- Theme Icons -->
   <link href="{{ asset('theme/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
   <!-- Theme CSS -->
-  <link href="{{ asset('theme/css/argon.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('theme/css/theme.min.css') }}" rel="stylesheet">
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,7 +24,7 @@
   @stack('styles')
 
     <script>
-      window.Laravel = {!! \Safe\json_encode([
+      window.Laravel = {!! json_encode([
               'locale' => str_replace('_', '-', app()->getLocale()),
               'timezone' => auth()->user() ? auth()->user()->timezone : 'America/Sao_Paulo',
               'env' => \App::environment(),
@@ -53,7 +53,7 @@
 @push('scripts')
   <script src="{{ asset('js/app.js') }}"></script>
   <!-- Theme JS -->
-  <script src="{{ asset('theme/js/argon.js') }}"></script>
+  <script src="{{ asset('theme/js/theme.min.js') }}"></script>
 @endpush
 
 @stack('scripts')
