@@ -4,7 +4,7 @@
         label="$FIELD_NAME_TITLE$"
         name="$FIELD_NAME$"
         value="$CHECKBOX_VALUE$"
-        :model-value="false"
+        :model-value="{{ Form::getValueAttribute('$FIELD_NAME$') == '$CHECKBOX_VALUE$' }}"
     >
     </form-checkbox>
 </div>

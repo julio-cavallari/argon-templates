@@ -3,8 +3,8 @@
         <form-radio
             label="$FIELD_NAME_TITLE$"
             name="$FIELD_NAME$"
-            value="$CHECKBOX_VALUE$"
-            :model-value="false"
+            value="$RADIO_VALUE$"
+            :model-value="{{ Form::getValueAttribute('$FIELD_NAME$') == '$RADIO_VALUE$' }}"
         >
         </form-radio>
     </div>

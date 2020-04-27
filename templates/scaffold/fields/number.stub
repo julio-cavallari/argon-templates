@@ -4,7 +4,7 @@
         title="$FIELD_NAME_TITLE$"
         name="$FIELD_NAME$"
         input-type="number"
-        value=""
+        value="{{ Form::getValueAttribute('$FIELD_NAME$') }}"
         error="@error('$FIELD_NAME$'){{ $message }}@enderror"
         :required="$FIELD_REQUIRED$"
         $SIZE$

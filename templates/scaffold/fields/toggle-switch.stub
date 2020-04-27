@@ -3,7 +3,7 @@
     <form-toggle
         title="$FIELD_NAME_TITLE$"
         name="$FIELD_NAME$"
-        :value="false"
+        :value="{{ Form::getValueAttribute('$FIELD_NAME$') }}"
         :labels="{checked: 'Ativo', unchecked: 'Inativo'}"
         :required="$FIELD_REQUIRED$"
     />
