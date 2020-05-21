@@ -15,9 +15,9 @@
                 <div class="card-body">
                     @include('layouts.partials.messages')
 
-                    {!! Form::open(['route' => '$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store'$FILES$]) !!}
-                    @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
-                    {!! Form::close() !!}
+                    <form action="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.store') }}" $FILES$ method="POST">
+                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                    </form>
                 </div>
             </div>
         </div>

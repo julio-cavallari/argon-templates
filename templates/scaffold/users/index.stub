@@ -1,30 +1,36 @@
 @extends('layouts.app')
 
-@section('content')
-@include('layouts.headers.title')
+@section('search')
+    @include('users.search')
+@endsection
 
-<div class="container-fluid mt--7">
-    <div class="row">
-        <div class="col">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h3 class="mb-0">Usuários</h3>
-                        </div>
-                        <div class="col-4 text-right">
-                            <a href="{{ route('clientes.create') }}" class="btn btn-sm btn-primary">Adicionar</a>
+@section('content')
+    @include('layouts.headers.title')
+
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Usuários</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                @permission('users.create')
+                                    <a href="{{ route('users.create') }}" class="btn btn-sm btn-primary">Adicionar</a>
+                                @endpermission
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                @include('layouts.partials.messages')
-                @include('users.table')
-                @include('layouts.partials.pagination', ['records' => $users]);
+                    @include('layouts.partials.messages')
+                    @include('users.table')
+                    @include('layouts.partials.pagination', ['records' => $users]);
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 @endsection
 

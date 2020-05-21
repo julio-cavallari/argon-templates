@@ -15,9 +15,9 @@
                 <div class="card-body">
                     @include('layouts.partials.messages')
 
-                    {!! Form::open(['route' => 'users.store']) !!}
+                    <form action="{{ route('users.store') }}" method="POST">
                         @include('users.fields')
-                    {!! Form::close() !!}
+                    </form>
                 </div>
             </div>
         </div>

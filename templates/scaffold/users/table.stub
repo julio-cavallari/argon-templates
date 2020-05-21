@@ -9,26 +9,39 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($users as $user)
+        @forelse($users as $user)
             <tr>
                 <td>{!! $user->name !!}</td>
                 <td>{!! $user->email !!}</td>
                 <td>
-                    {!! Form::open(['route' => ['users.destroy', $cliente->id], 'method' => 'delete']) !!}
-                    <div class="dropdown">
-                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                            <a class="dropdown-item" href="{{ route('users.show', [$cliente->id]) }}">Visualizar</a>
-                            <a class="dropdown-item" href="{{ route('users.edit', [$cliente->id]) }}">Editar</a>
-                            <button class="dropdown-item" type="submit" onclick="return confirm('Deseja excluir?')">Excluir</button>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                        @method('DELETE')
+                        <div class="dropdown">
+                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                @permission('users.show')
+                                <a class="dropdown-item" href="{{ route('users.show', [$user->id]) }}">Visualizar</a>
+                                @endpermission
+
+                                @permission('users.edit')
+                                <a class="dropdown-item" href="{{ route('users.edit', [$user->id]) }}">Editar</a>
+                                @endpermission
+
+                                @permission('users.destroy')
+                                <button class="dropdown-item" type="submit" onclick="return confirm('Deseja excluir?')">Excluir</button>
+                                @endpermission
+                            </div>
                         </div>
-                    </div>
-                    {!! Form::close() !!}
+                    </form>
                 </td>
             </tr>
-        @endforeach
+        @empty
+        <tr>
+            <td colspan="100%" class="text-center">Nenhum registro encontrado.</td>
+        </tr>
+        @endforelse
         </tbody>
     </table>
 </div>

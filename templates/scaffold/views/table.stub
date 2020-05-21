@@ -11,25 +11,33 @@
         <tr>
             $FIELD_BODY$
             <td>
-                {!! Form::open(['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.destroy', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'delete']) !!}
+                <form action="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.destroy', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$) }}" method="POST">
+                    @method('DELETE')
+                    <div class="dropdown">
+                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                            @permission('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.show')
+                            <a class="dropdown-item" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.show', [$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$]) }}">Visualizar</a>
+                            @endpermission
 
-                <div class="dropdown">
-                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                        <a class="dropdown-item" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.show', [$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$]) }}">Visualizar</a>
-                        <a class="dropdown-item" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.edit', [$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$]) }}">Editar</a>
-                        <button class="dropdown-item" type="submit" onclick="return confirm('Deseja excluir?')">Excluir</button>
+                            @permission('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.edit')
+                            <a class="dropdown-item" href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.edit', [$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$]) }}">Editar</a>
+                            @endpermission
+
+                            @permission('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.destroy')
+                            <button class="dropdown-item" type="submit" onclick="return confirm('Deseja excluir?')">Excluir</button>
+                            @endpermission
+                        </div>
                     </div>
-                </div>
-                {!! Form::close() !!}
+                </form>
             </td>
         </tr>
         @empty
-        <tr>
-            <td colspan="100%" align="center">Nenhum registro encontrado.</td>
-        </tr>
+            <tr>
+                <td colspan="100%" class="text-center">Nenhum registro encontrado.</td>
+            </tr>
         @endforelse
         </tbody>
     </table>

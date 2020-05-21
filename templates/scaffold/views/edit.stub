@@ -15,9 +15,10 @@
                 <div class="card-body">
                     @include('layouts.partials.messages')
 
-                    {!! Form::model($$MODEL_NAME_CAMEL$, ['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$], 'method' => 'patch'$FILES$]) !!}
-                    @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
-                    {!! Form::close() !!}
+                    <form action="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$) }}" method="POST" $FILES$>
+                        @method('PUT')
+                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                    </form>
                 </div>
             </div>
         </div>
