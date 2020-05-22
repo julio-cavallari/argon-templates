@@ -20,7 +20,10 @@
     <div class="navbar-inner">
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-        @include('layouts.navbars.sidebar.menu')
+        <ul class="navbar-nav">
+          <!-- Nav items -->
+          @include('layouts.navbars.sidebar.menu')
+        </ul>
       </div>
     </div>
   </div>

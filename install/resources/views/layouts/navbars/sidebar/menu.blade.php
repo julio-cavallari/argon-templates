@@ -1,8 +1,3 @@
-
-
-
-<!-- Nav items -->
-<ul class="navbar-nav">
   <li class="nav-item {{ Request::is('clientes*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('clientes.index') }}">
       <i class="ni ni-ungroup text-orange"></i>
@@ -205,4 +200,3 @@
   </li>
   */
   ?>
-</ul>
