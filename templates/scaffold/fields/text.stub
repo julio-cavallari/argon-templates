@@ -1,5 +1,13 @@
 <!-- $FIELD_NAME_TITLE$ Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('$FIELD_NAME$', '$FIELD_NAME_TITLE$:') !!}
-    {!! Form::text('$FIELD_NAME$', null, ['class' => 'form-control'$SIZE$]) !!}
+    <form-input
+        title="$FIELD_NAME_TITLE$"
+        name="$FIELD_NAME$"
+        value="{{ old('$FIELD_NAME$', $$MODEL_NAME_CAMEL$->$FIELD_NAME$) }}"
+        error="@error('$FIELD_NAME$'){{ $message }}@enderror"
+        :required="$FIELD_REQUIRED$"
+        input-type="text"
+    >
+    </form-input>
 </div>
+

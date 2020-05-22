@@ -3,7 +3,7 @@
     <form-toggle
         title="$FIELD_NAME_TITLE$"
         name="$FIELD_NAME$"
-        :value="{{ Form::getValueAttribute('$FIELD_NAME$') }}"
+        :value="{{ old('$FIELD_NAME$', $$MODEL_NAME_CAMEL$->$FIELD_NAME$) }}"
         :labels="{checked: 'Ativo', unchecked: 'Inativo'}"
         :required="$FIELD_REQUIRED$"
     />

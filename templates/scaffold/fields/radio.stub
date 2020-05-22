@@ -4,7 +4,7 @@
             label="$FIELD_NAME_TITLE$"
             name="$FIELD_NAME$"
             value="$RADIO_VALUE$"
-            :model-value="{{ Form::getValueAttribute('$FIELD_NAME$') == '$RADIO_VALUE$' }}"
+            :model-value="{{ old('$FIELD_NAME$', $$MODEL_NAME_CAMEL$->$FIELD_NAME$) == '$RADIO_VALUE$' }}"
         >
         </form-radio>
     </div>

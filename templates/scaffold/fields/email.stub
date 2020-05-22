@@ -4,10 +4,9 @@
         title="$FIELD_NAME_TITLE$"
         name="$FIELD_NAME$"
         input-type="email"
-        value="{{ Form::getValueAttribute('$FIELD_NAME$') }}"
+        value="{{ old('$FIELD_NAME$', $$MODEL_NAME_CAMEL$->$FIELD_NAME$) }}"
         error="@error('$FIELD_NAME$'){{ $message }}@enderror"
         :required="$FIELD_REQUIRED$"
-        $SIZE$
     >
     </form-input>
 </div>
