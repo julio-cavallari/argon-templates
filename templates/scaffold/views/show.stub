@@ -1,31 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-@include('layouts.headers.title')
+    @include('layouts.headers.title', [
+        'icon' => 'mdi mdi-eye',
+        'title' => 'Visualizar $MODEL_NAME_HUMAN$'
+    ])
 
-<div class="container-fluid mt--7">
-    <div class="row">
-        <div class="col">
-            <div class="card shadow">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h3 class="mb-0">Visualizar $MODEL_NAME_HUMAN$</h3>
-                        </div>
-                        <div class="col-4 text-right">
-                            <a href="{{ URL::previous() }}" class="btn btn-sm btn-light">Voltar</a>
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 text-right">
+                                <a href="{{ URL::previous() }}" class="btn btn-sm btn-light">Voltar</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card-body">
-                    @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.show_fields')
-                </div>
+                    <div class="card-body">
+                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.show_fields')
+                    </div>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 @endsection
 

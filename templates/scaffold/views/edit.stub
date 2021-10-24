@@ -1,27 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-@include('layouts.headers.title')
+    @include('layouts.headers.title', [
+        'icon' => 'mdi mdi-pencil',
+        'title' => 'Editar $MODEL_NAME_HUMAN$'
+    ])
 
-<div class="container-fluid mt--7">
-    <div class="row">
-        <div class="col-xl-8 order-xl-1">
-            <div class="card bg-secondary shadow">
-                <div class="card-header bg-white border-0">
-                    <div class="row align-items-center">
-                        <h3 class="col-12 mb-0">Editar $MODEL_NAME_HUMAN$</h3>
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-8 order-xl-1">
+                <div class="card bg-secondary shadow">
+                    <div class="card-body">
+                        @include('layouts.partials.messages')
+
+                        <form action="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$) }}" method="POST" $FILES$>
+                            @method('PUT')
+                            @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
+                        </form>
                     </div>
-                </div>
-                <div class="card-body">
-                    @include('layouts.partials.messages')
-
-                    <form action="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$) }}" method="POST" $FILES$>
-                        @method('PUT')
-                        @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

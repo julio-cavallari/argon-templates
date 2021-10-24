@@ -1,5 +1,5 @@
 {
-    "name": "gpedon/argon-templates",
+    "name": "julio-cavallari/argon-templates",
     "type": "library",
     "description": "Argon templates for InfyOm Laravel Generator",
     "keywords": [
@@ -13,13 +13,13 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Guilherme Makauskas",
-            "email": "contato@guilhermepedon.com.br"
+            "name": "Julio Cavallari",
+            "email": "cesinha--jcf@hotmail.com"
         }
     ],
     "require": {
-        "php": "^7.2.5",
-        "illuminate/support": "^7.0"
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^8.67.0"
     },
     "autoload": {
         "psr-4": {
